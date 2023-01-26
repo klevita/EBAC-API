@@ -77,6 +77,7 @@ app.patch("/task/completeTaskById/:id", jsonParser, function (req, res) {
     })
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`[server]: Server is running at 0.0.0.0:${process.env.PORT}`);
+const port = 8087
+app.listen(port, () => {
+    console.log(`[server]: Server is running at ${port}`);
 });
