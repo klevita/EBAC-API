@@ -20,7 +20,7 @@ const pool = new pg_1.default.Pool({
 });
 var jsonParser = body_parser_1.default.json();
 app.use((0, cors_1.default)({
-    origin: "http://localhost:8080",
+    origin: '*',
 }));
 app.get('/', (req, res) => {
     res.send('hi EBAC :)');
@@ -51,7 +51,7 @@ app.post("/task/alterTask", jsonParser, function (req, res) {
         if (error) {
             throw error;
         }
-        res.sendStatus(200);
+        res.status(200).send(JSON.stringify(results.rows[0].id));
     });
 });
 app.delete("/task/deleteTaskById/:id", function (req, res) {

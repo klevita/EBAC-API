@@ -18,7 +18,7 @@ var jsonParser = bodyParser.json()
 
 app.use(
     cors({
-        origin: "http://localhost:8080",
+        origin: '*',
     })
 )
 
@@ -51,7 +51,7 @@ app.post("/task/alterTask", jsonParser, function (req, res) {
         if (error) {
             throw error
         }
-        res.sendStatus(200)
+        res.status(200).send(JSON.stringify(results.rows[0].id))
     })
 });
 
